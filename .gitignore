@@ -1,0 +1,9 @@
+# Cache files
+__pycache__
+
+# Command history
+.python_history
+
+# Local settings
+./
+docker-compose.override.yml

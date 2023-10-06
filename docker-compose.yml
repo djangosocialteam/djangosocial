@@ -1,0 +1,45 @@
+# Base docker-compose file
+services:
+  djangosocial-django:
+    build:
+      context: django
+      target: django-prod
+    container_name: djangosocial-django
+    depends_on:
+      - djangosocial-postgres
+    environment:
+      - DJANGO_DEBUG=${DJANGO_DEBUG-False}
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    volumes:
+      - ./nginx/media:/mnt/media
+      - ./nginx/static:/mnt/static
+  djangosocial-nginx:
+    build:
+      context: nginx
+      target: nginx-prod
+    container_name: djangosocial-nginx
+    depends_on:
+      - djangosocial-django
+    expose:
+      - "80"
+    restart: unless-stopped
+    volumes:
+      - ./nginx/media:/mnt/media
+      - ./nginx/static:/mnt/static
+  djangosocial-postgres:
+    container_name: djangosocial-postgres
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    image: postgres:15
+    volumes:
+      - djangosocial-postgres-data:/var/lib/postgresql/data/
+
+volumes:
+  djangosocial-postgres-data:

@@ -1,0 +1,31 @@
+[tool.black]
+line-length = 119
+target-version = ['py311']
+
+[tool.django-stubs]
+django_settings_module = "djangosocial.settings.dev"
+
+[tool.mypy]
+exclude = [
+  "migrations",
+  "tests",
+  "manage.py",
+  "(a|w)sgi.py",
+]
+plugins = [
+  "mypy_django_plugin.main",
+]
+
+[[tool.mypy.overrides]]
+module = [
+  "djangorestframework.*",
+  "wagtail.*",
+]
+ignore_missing_imports = true
+
+[tool.ruff]
+extend-exclude = ["migrations"]
+extend-select = ["A", "B", "C4", "C90", "COM", "D", "DJ", "I", "LOG", "N", "PTH", "RUF", "SIM", "W"]
+fix = false
+line-length = 119
+target-version = "py311"

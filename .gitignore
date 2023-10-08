@@ -1,5 +1,7 @@
 # Cache files
+.mypy_cache
 __pycache__
+.ropeproject
 
 # Command history
 .python_history

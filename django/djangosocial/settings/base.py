@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "djangosocial.home",
     "djangosocial.search",
+    "djangosocial.users",
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,8 @@ DATABASES = {
     },
 }
 
+# User model
+AUTH_USER_MODEL = "users.User"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

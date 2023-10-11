@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "djangosocial.home",
     "djangosocial.search",
+    "djangosocial.streams",
     "djangosocial.users",
 ]
 

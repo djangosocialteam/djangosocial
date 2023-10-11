@@ -13,6 +13,10 @@
 }
 
 @layer components {
+  /* Hero section */
+  .hero {
+    @apply flex h-screen w-screen items-center justify-center bg-cover bg-center bg-no-repeat md:aspect-video md:h-min;
+  }
   .small-centered-container {
     @apply mx-auto w-full max-w-sm;
   }

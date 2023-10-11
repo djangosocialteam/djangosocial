@@ -1,0 +1,5 @@
+{# django #}
+{% load wagtailimages_tags %}
+{% image self.image width-1920 as hero_image %}
+<section class="hero" style="background-image: url('{{ hero_image.url }}')">
+</section>

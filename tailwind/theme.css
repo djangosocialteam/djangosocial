@@ -2,3 +2,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* See: https://tailwindcss.com/docs/adding-custom-styles#using-css-and-layer */
+@layer base {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    @apply rounded border;
+  }
+}
+
+@layer components {
+  .small-centered-container {
+    @apply mx-auto w-full max-w-sm;
+  }
+}

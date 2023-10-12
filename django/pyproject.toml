@@ -1,9 +1,17 @@
 [tool.black]
 line-length = 119
 target-version = ['py311']
+extend-exclude = "(migrations)"
+# Exclude these even if they're passed explicitly as a CLI argument.
+# This is necessary for pre-commit to not reformat them.
+force-exclude = "(migrations)"
 
 [tool.django-stubs]
 django_settings_module = "djangosocial.settings.dev"
+
+[tool.isort]
+extend_skip = ["migrations"]
+known_third_party = ["django"]
 
 [tool.mypy]
 exclude = [

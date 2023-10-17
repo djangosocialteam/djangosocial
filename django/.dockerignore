@@ -6,6 +6,7 @@
 # Python and others
 __pycache__
 *.pyc
+.cache
 .DS_Store
 *.swp
 /venv/

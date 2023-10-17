@@ -1,0 +1,14 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[html][django-html]": {
+    "editor.defaultFormatter": "monosans.djlint",
+    "djlint.enableLinting": true
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+  }
+}

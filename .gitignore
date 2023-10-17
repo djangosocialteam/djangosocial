@@ -9,3 +9,11 @@ __pycache__
 
 # Local settings
 docker-compose.override.yml
+
+# Local VS Code settings
+.vscode/**/*
+# Allow these files
+!.vscode/settings.json
+
+# Node.js
+node_modules

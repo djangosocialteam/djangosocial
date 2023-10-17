@@ -1,0 +1,24 @@
+{
+  "name": "djangosocialtw",
+  "version": "1.0.0",
+  "description": "Tailwind config for Django.social",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djangosocialteam/djangosocial.git"
+  },
+  "author": "Django.social Team",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/djangosocialteam/djangosocial/issues"
+  },
+  "homepage": "https://github.com/djangosocialteam/djangosocial#readme",
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "tailwindcss": "^3.3.3"
+  }
+}

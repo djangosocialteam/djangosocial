@@ -29,7 +29,7 @@ build() {
 
 check() {
     _requires djangosocial-django
-    exec djangosocial-django django-admin check "$@"
+    exec djangosocial-django python -m manage check "$@"
 }
 
 compose() {
@@ -38,12 +38,12 @@ compose() {
 
 djshell() {
     _requires djangosocial-django
-    exec djangosocial-django django-admin shell "$@"
+    exec djangosocial-django python -m manage shell "$@"
 }
 
 makemigrations() {
     _requires djangosocial-django
-    exec djangosocial-django django-admin makemigrations "$@"
+    exec djangosocial-django python -m manage makemigrations "$@"
 }
 
 migrate() {

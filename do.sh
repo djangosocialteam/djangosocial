@@ -130,7 +130,7 @@ Usage:
     ${BOLD}start${NORMAL} [<arg>]
 
         Start the django server (and dependent services)
-        You can pass `-d` for running detached.
+        You can pass "-d" for running detached.
 
     ${BOLD}stop${NORMAL} [<arg>]
 

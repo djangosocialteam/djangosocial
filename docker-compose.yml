@@ -28,6 +28,16 @@ services:
       - djangosocial-django
     expose:
       - "80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.sociald-insecure.redirectscheme.scheme=https"
+      - "traefik.http.routers.sociald-insecure.rule=Host(`sociald.theepic.dev`)"
+      - "traefik.http.routers.sociald-secure.rule=Host(`sociald.theepic.dev`)"
+      - "traefik.http.routers.sociald-insecure.entrypoints=http"
+      - "traefik.http.routers.sociald-insecure.middlewares=sociald-insecure"
+      - "traefik.http.routers.sociald-secure.entrypoints=https"
+      - "traefik.http.routers.sociald-secure.tls"
+      - "traefik.http.routers.sociald-secure.tls.certResolver=epic"
     restart: unless-stopped
     volumes:
       - ./nginx/media:/mnt/media

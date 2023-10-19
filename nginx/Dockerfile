@@ -6,4 +6,4 @@ FROM ${NGINX_IMAGE} as nginx-dev
 COPY nginx.dev.conf /etc/nginx/nginx.conf
 
 FROM ${NGINX_IMAGE} as nginx-prod
-# COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf

@@ -1,6 +1,6 @@
 # Wagtail Dockerfile
 # Python image to use
-ARG PYTHON_IMAGE=python:3.11-slim-bookworm
+ARG PYTHON_IMAGE=python:3.12-slim-bookworm
 
 FROM ${PYTHON_IMAGE} as django-base
 # The uid for your user account

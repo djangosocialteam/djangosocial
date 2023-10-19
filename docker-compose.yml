@@ -15,6 +15,8 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - PYTHONUNBUFFERED=1
+    networks:
+      - epicnet
     restart: unless-stopped
     volumes:
       - ./nginx/media:/mnt/media
@@ -38,6 +40,8 @@ services:
       - "traefik.http.routers.sociald-secure.entrypoints=https"
       - "traefik.http.routers.sociald-secure.tls"
       - "traefik.http.routers.sociald-secure.tls.certResolver=epic"
+    networks:
+      - epicnet
     restart: unless-stopped
     volumes:
       - ./nginx/media:/mnt/media
@@ -49,8 +53,14 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     image: postgres:15
+    networks:
+      - epicnet
     volumes:
       - djangosocial-postgres-data:/var/lib/postgresql/data/
+
+networks:
+  epicnet:
+    external: true
 
 volumes:
   djangosocial-postgres-data:

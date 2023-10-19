@@ -24,3 +24,26 @@ class HomePage(Page):
         *Page.content_panels,
         FieldPanel("body"),
     )
+
+    parent_page_types = []
+    subpage_types = ['home.AboutPage']
+
+class AboutPage(Page):
+    "About Page Model"
+
+    body = StreamField(
+        [
+            ("rich_text", blocks.RichTextBlock()),
+            ("hero_image", HeroImageBlock()),
+        ],
+        use_json_field=True,
+        null=True,
+    )
+
+    content_panels = (
+        *Page.content_panels,
+        FieldPanel("body"),
+    )
+
+    parent_page_types = ['home.HomePage']
+    subpage_types = []

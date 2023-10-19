@@ -18,11 +18,12 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
   && rm -rf /var/lib/apt/lists/*
 # Install common requirements
 COPY requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
+RUN python -m pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
 
 # Dev stage
 FROM django-base as django-dev
 COPY requirements-dev.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
+RUN python -m pip install pip-tools
+RUN python -m pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
 USER python
 ENTRYPOINT ["python", "manage.py", "runserver", "0.0.0.0:8000"]

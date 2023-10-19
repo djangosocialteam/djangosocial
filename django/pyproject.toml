@@ -9,10 +9,6 @@ force-exclude = "(migrations)"
 [tool.django-stubs]
 django_settings_module = "djangosocial.settings.dev"
 
-[tool.isort]
-extend_skip = ["migrations"]
-known_third_party = ["django"]
-
 [tool.mypy]
 exclude = [
   "migrations",
@@ -33,7 +29,23 @@ ignore_missing_imports = true
 
 [tool.ruff]
 extend-exclude = ["migrations"]
-extend-select = ["A", "B", "C4", "C90", "COM", "D", "DJ", "I", "LOG", "N", "PTH", "RUF", "SIM", "W"]
+extend-select = [
+    "A",   # flake8-builtins
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "C90", # mccabe
+    "COM", # flake8-commas
+    "D",   # pydocstyle
+    "DJ",  # flake8-django
+    "I",   # isort
+    "LOG", # flake8-logging
+    "N",   # pep8-naming
+    "PTH", # flake8-use-pathlib
+    "RUF", # Ruff-specific rules
+    "SIM", # flake8-simplify
+    "UP",  # pyupgrade
+    "W"    # pycodestyle Warning
+]
 fix = false
 line-length = 119
 target-version = "py311"

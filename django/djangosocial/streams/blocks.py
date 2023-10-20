@@ -1,6 +1,6 @@
 """Stream block definitions."""
 
-from wagtail.blocks import StructBlock, CharBlock, TextBlock, ListBlock, DateBlock
+from wagtail.blocks import StructBlock, CharBlock, TextBlock, ListBlock, DateBlock, PageChooserBlock
 from wagtail.images.blocks import ImageChooserBlock
 
 
@@ -50,9 +50,24 @@ class HeroBlock(StructBlock):
     class Meta:
         template = "blocks/hero_block.html"
 
+
+class ContentListItemBlock(StructBlock):
+    title = CharBlock()
+    lead_paragraph = TextBlock()
+    link = PageChooserBlock()
+
 class ContentListBlock(StructBlock):
     "ContentList Block"
+    title = CharBlock()
+    lead_paragraph = TextBlock()
+    image = ImageChooserBlock()
 
+    list_title = CharBlock()
+    list_type = CharBlock(help_text="What does the list of represent? (eg roles, events)")
+    content_list = ListBlock(ContentListItemBlock())
+
+    more_list_text = CharBlock()
+    more_list_link = PageChooserBlock()
 
     class Meta:
         template = "blocks/content_with_list.html"
@@ -60,6 +75,14 @@ class ContentListBlock(StructBlock):
 class ContentWithImagesBlock(StructBlock):
     "Content With Images Block"
 
+    title = CharBlock()
+    lead_paragraph = TextBlock()
+    secondary_paragraph = TextBlock()
+
+    top_image = ImageChooserBlock()
+    bottom_left_image = ImageChooserBlock()
+    bottom_center_image = ImageChooserBlock()
+    bottom_right_image = ImageChooserBlock()
 
     class Meta:
         template = "blocks/content_with_images_block.html"

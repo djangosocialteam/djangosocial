@@ -1,6 +1,6 @@
 """Stream block definitions."""
 
-from wagtail.blocks import StructBlock, CharBlock, TextBlock
+from wagtail.blocks import StructBlock, CharBlock, TextBlock, ListBlock, DateBlock
 from wagtail.images.blocks import ImageChooserBlock
 
 
@@ -16,12 +16,22 @@ class HeroImageBlock(StructBlock):
         template = "blocks/hero_image_block.html"
 
 
+class TimelineMomentBlock(StructBlock):
+    date = DateBlock()
+    title = CharBlock()
+    description = TextBlock()
+
+    class Meta:
+        template = "blocks/timeline_moment_block.html"
+
 class TimelineBlock(StructBlock):
     "Timeline Block"
 
-
+    timeline_moments = ListBlock(TimelineMomentBlock())
     class Meta:
         template = "blocks/timeline_block.html"
+
+
 
 class StatsBlock(StructBlock):
     "Stats Block"

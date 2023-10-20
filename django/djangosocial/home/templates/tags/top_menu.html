@@ -1,0 +1,17 @@
+{% load wagtailcore_tags navbar %}
+{% get_site_root as site_root %}
+
+
+{% for menuitem in menuitems %}
+
+{% if is_desktop %}
+<a href="{% pageurl menuitem %}"
+    class="text-sm font-semibold leading-6 text-gray-900{% if menuitem.active %} underline text-gray-600{% endif %}">
+    {{ menuitem.title }}</a>
+{% else %}
+<a href="{% pageurl menuitem %}"
+    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50{% if menuitem.active %} underline text-gray-600{% endif %}">
+    {{ menuitem.title }}</a>
+{% endif %}
+
+{% endfor %}

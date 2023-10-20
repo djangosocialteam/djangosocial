@@ -5,6 +5,7 @@ __pycache__
 .ropeproject
 
 # Command history
+.bash_history
 .python_history
 
 # Local settings

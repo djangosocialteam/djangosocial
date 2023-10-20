@@ -47,5 +47,10 @@ extend-select = [
     "W"    # pycodestyle Warning
 ]
 fix = false
+# Incompatible rules
+ignore = [
+  "D203", # use D211 instead, no blank lines before class docstrings
+  "D213", # use D212 instead, multi-line docstring should start on the first line
+]
 line-length = 119
 target-version = "py311"

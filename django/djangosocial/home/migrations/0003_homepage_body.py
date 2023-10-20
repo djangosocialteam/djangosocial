@@ -8,13 +8,17 @@ import wagtail.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0002_create_homepage'),
+        ("home", "0002_create_homepage"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='homepage',
-            name='body',
-            field=wagtail.fields.StreamField([('rich_text', wagtail.blocks.RichTextBlock())], null=True, use_json_field=True),
+            model_name="homepage",
+            name="body",
+            field=wagtail.fields.StreamField(
+                [("rich_text", wagtail.blocks.RichTextBlock())],
+                null=True,
+                use_json_field=True,
+            ),
         ),
     ]

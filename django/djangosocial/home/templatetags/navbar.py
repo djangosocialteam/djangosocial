@@ -56,7 +56,7 @@ def top_menu(context, parent, calling_page=None, is_desktop=True):
         "menuitems": menuitems,
         # required by the pageurl tag that we want to use within this template
         "request": context["request"],
-        "is_desktop": is_desktop
+        "is_desktop": is_desktop,
     }
 
 

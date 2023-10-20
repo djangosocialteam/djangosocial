@@ -9,13 +9,32 @@ import wagtail.images.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0003_homepage_body'),
+        ("home", "0003_homepage_body"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='homepage',
-            name='body',
-            field=wagtail.fields.StreamField([('rich_text', wagtail.blocks.RichTextBlock()), ('hero_image', wagtail.blocks.StructBlock([('image', wagtail.images.blocks.ImageChooserBlock(help_text='The image to display.', required=True))]))], null=True, use_json_field=True),
+            model_name="homepage",
+            name="body",
+            field=wagtail.fields.StreamField(
+                [
+                    ("rich_text", wagtail.blocks.RichTextBlock()),
+                    (
+                        "hero_image",
+                        wagtail.blocks.StructBlock(
+                            [
+                                (
+                                    "image",
+                                    wagtail.images.blocks.ImageChooserBlock(
+                                        help_text="The image to display.", required=True
+                                    ),
+                                )
+                            ]
+                        ),
+                    ),
+                ],
+                null=True,
+                use_json_field=True,
+            ),
         ),
     ]

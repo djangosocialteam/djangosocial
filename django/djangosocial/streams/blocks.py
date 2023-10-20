@@ -14,3 +14,46 @@ class HeroImageBlock(StructBlock):
 
         icon = "image"
         template = "blocks/hero_image_block.html"
+
+
+class TimelineBlock(StructBlock):
+    "Timeline Block"
+
+
+    class Meta:
+        template = "blocks/timeline_block.html"
+
+class StatsBlock(StructBlock):
+    "Stats Block"
+
+
+    class Meta:
+        template = "blocks/stats_block.html"
+
+class HeroBlock(StructBlock):
+    "Hero Block"
+
+
+    class Meta:
+        template = "blocks/hero_block.html"
+
+class ContentListBlock(StructBlock):
+    "ContentList Block"
+
+
+    class Meta:
+        template = "blocks/content_with_list.html"
+
+class ContentWithImagesBlock(StructBlock):
+    "Content With Images Block"
+
+
+    class Meta:
+        template = "blocks/content_with_images_block.html"
+
+
+class LogoCloudBlock(StructBlock):
+    "Logo Cloud Block"
+
+    class Meta:
+        template = "blocks/logocloud_block.html"

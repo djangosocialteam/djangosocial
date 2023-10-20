@@ -11,7 +11,7 @@ from wagtail.fields import StreamField
 from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 
-from djangosocial.streams.blocks import HeroImageBlock
+from djangosocial.streams.blocks import HeroImageBlock, TimelineBlock,StatsBlock,HeroBlock,ContentListBlock,ContentWithImagesBlock, LogoCloudBlock
 
 
 class HomePage(Page):
@@ -21,6 +21,12 @@ class HomePage(Page):
         [
             ("rich_text", blocks.RichTextBlock()),
             ("hero_image", HeroImageBlock()),
+            ("timeline", TimelineBlock()),
+            ("stats", StatsBlock()),
+            ("hero", HeroBlock()),
+            ("content_list", ContentListBlock()),
+            ("content_with_images", ContentWithImagesBlock()),
+            ("logo_cloud", LogoCloudBlock())
         ],
         use_json_field=True,
         null=True,
@@ -41,6 +47,12 @@ class AboutPage(Page):
         [
             ("rich_text", blocks.RichTextBlock()),
             ("hero_image", HeroImageBlock()),
+            ("timeline", TimelineBlock()),
+            ("stats", StatsBlock()),
+            ("hero", HeroBlock()),
+            ("content_list", ContentListBlock()),
+            ("content_with_images", ContentWithImagesBlock()),
+            ("logo_cloud", LogoCloudBlock())
         ],
         use_json_field=True,
         null=True,

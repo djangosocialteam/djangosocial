@@ -1,6 +1,6 @@
 """Stream block definitions."""
 
-from wagtail.blocks import StructBlock
+from wagtail.blocks import StructBlock, CharBlock, TextBlock
 from wagtail.images.blocks import ImageChooserBlock
 
 
@@ -33,6 +33,9 @@ class StatsBlock(StructBlock):
 class HeroBlock(StructBlock):
     "Hero Block"
 
+    title = CharBlock()
+    lead_paragraph = TextBlock()
+    image = ImageChooserBlock(help_text="The image to display.", required=True)
 
     class Meta:
         template = "blocks/hero_block.html"

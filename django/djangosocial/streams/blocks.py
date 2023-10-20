@@ -1,6 +1,6 @@
 """Stream block definitions."""
 
-from wagtail.blocks import StructBlock, CharBlock, TextBlock, ListBlock, DateBlock, PageChooserBlock
+from wagtail.blocks import StructBlock, CharBlock, TextBlock, ListBlock, DateBlock, PageChooserBlock, ChoiceBlock
 from wagtail.images.blocks import ImageChooserBlock
 
 
@@ -32,10 +32,22 @@ class TimelineBlock(StructBlock):
         template = "blocks/timeline_block.html"
 
 
+class Stat(StructBlock):
+    number = CharBlock() # not an actual number to give flexibility in formatting
+    title = CharBlock()
+    description  = TextBlock()
+    size = ChoiceBlock(choices = [
+        ("small", "Small"),
+        ("medium", "Medium"),
+        ("large", "Large"),
+    ])
 
 class StatsBlock(StructBlock):
     "Stats Block"
 
+    title = CharBlock()
+    lead_paragraph = TextBlock()
+    stats = ListBlock(Stat(), max_num=3)
 
     class Meta:
         template = "blocks/stats_block.html"
@@ -64,7 +76,7 @@ class ContentListBlock(StructBlock):
 
     list_title = CharBlock()
     list_type = CharBlock(help_text="What does the list of represent? (eg roles, events)")
-    content_list = ListBlock(ContentListItemBlock())
+    content_list = ListBlock(ContentListItemBlock(), max_num=3)
 
     more_list_text = CharBlock()
     more_list_link = PageChooserBlock()

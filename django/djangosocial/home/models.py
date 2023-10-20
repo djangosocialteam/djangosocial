@@ -1,10 +1,8 @@
 """Home page models."""
 
 from django.db import models
-
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
-
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel, InlinePanel
 from wagtail.fields import StreamField
@@ -12,13 +10,13 @@ from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 
 from djangosocial.streams.blocks import (
-    HeroImageBlock,
-    TimelineBlock,
-    StatsBlock,
-    HeroBlock,
     ContentListBlock,
     ContentWithImagesBlock,
+    HeroBlock,
+    HeroImageBlock,
     LogoCloudBlock,
+    StatsBlock,
+    TimelineBlock,
 )
 
 

@@ -1,13 +1,13 @@
 """Stream block definitions."""
 
 from wagtail.blocks import (
-    StructBlock,
     CharBlock,
-    TextBlock,
-    ListBlock,
-    DateBlock,
-    PageChooserBlock,
     ChoiceBlock,
+    DateBlock,
+    ListBlock,
+    PageChooserBlock,
+    StructBlock,
+    TextBlock,
 )
 from wagtail.images.blocks import ImageChooserBlock
 
@@ -51,7 +51,7 @@ class Stat(StructBlock):
             ("small", "Small"),
             ("medium", "Medium"),
             ("large", "Large"),
-        ]
+        ],
     )
 
 
@@ -85,14 +85,13 @@ class ContentListItemBlock(StructBlock):
 
 class ContentListBlock(StructBlock):
     "ContentList Block"
+
     title = CharBlock()
     lead_paragraph = TextBlock()
     image = ImageChooserBlock()
 
     list_title = CharBlock()
-    list_type = CharBlock(
-        help_text="What does the list of represent? (eg roles, events)"
-    )
+    list_type = CharBlock(help_text="What does the list of represent? (eg roles, events)")
     content_list = ListBlock(ContentListItemBlock(), max_num=3)
 
     more_list_text = CharBlock()

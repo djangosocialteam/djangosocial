@@ -1,7 +1,7 @@
 # Borrowed wagtail/bakerydemo
 
 from django import template
-from wagtail.models import Page, Site
+from wagtail.models import Site
 
 from ..models import NavBar
 
@@ -45,11 +45,7 @@ def top_menu(context, parent, calling_page=None, is_desktop=True):
         # We don't directly check if calling_page is None since the template
         # engine can pass an empty string to calling_page
         # if the variable passed as calling_page does not exist.
-        menuitem.active = (
-            calling_page.url_path.startswith(menuitem.url_path)
-            if calling_page
-            else False
-        )
+        menuitem.active = calling_page.url_path.startswith(menuitem.url_path) if calling_page else False
 
     return {
         "calling_page": calling_page,

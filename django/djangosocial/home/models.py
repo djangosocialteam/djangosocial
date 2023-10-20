@@ -11,7 +11,15 @@ from wagtail.fields import StreamField
 from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 
-from djangosocial.streams.blocks import HeroImageBlock, TimelineBlock,StatsBlock,HeroBlock,ContentListBlock,ContentWithImagesBlock, LogoCloudBlock
+from djangosocial.streams.blocks import (
+    HeroImageBlock,
+    TimelineBlock,
+    StatsBlock,
+    HeroBlock,
+    ContentListBlock,
+    ContentWithImagesBlock,
+    LogoCloudBlock,
+)
 
 
 class HomePage(Page):
@@ -26,7 +34,7 @@ class HomePage(Page):
             ("hero", HeroBlock()),
             ("content_list", ContentListBlock()),
             ("content_with_images", ContentWithImagesBlock()),
-            ("logo_cloud", LogoCloudBlock())
+            ("logo_cloud", LogoCloudBlock()),
         ],
         use_json_field=True,
         null=True,
@@ -38,7 +46,8 @@ class HomePage(Page):
     )
 
     parent_page_types = []
-    subpage_types = ['home.AboutPage']
+    subpage_types = ["home.AboutPage"]
+
 
 class AboutPage(Page):
     "About Page Model"
@@ -52,7 +61,7 @@ class AboutPage(Page):
             ("hero", HeroBlock()),
             ("content_list", ContentListBlock()),
             ("content_with_images", ContentWithImagesBlock()),
-            ("logo_cloud", LogoCloudBlock())
+            ("logo_cloud", LogoCloudBlock()),
         ],
         use_json_field=True,
         null=True,
@@ -63,28 +72,25 @@ class AboutPage(Page):
         FieldPanel("body"),
     )
 
-    parent_page_types = ['home.HomePage']
+    parent_page_types = ["home.HomePage"]
     subpage_types = []
 
 
 @register_snippet
 class Footer(ClusterableModel):
-    panels = [
-        InlinePanel('footer_links', label="Footer Links")
-    ]
+    panels = [InlinePanel("footer_links", label="Footer Links")]
+
 
 @register_snippet
 class NavBar(ClusterableModel):
     logo = models.ImageField(upload_to="images/logos/")
 
-    panels = [
-        FieldPanel('logo'),
-        InlinePanel('nav_links', label="Nav Links")
-    ]
+    panels = [FieldPanel("logo"), InlinePanel("nav_links", label="Nav Links")]
+
 
 class Link(models.Model):
-    nav_bar = ParentalKey(NavBar, related_name='nav_links', null=True, blank=True)
-    footer = ParentalKey(Footer, related_name='footer_links',null=True, blank=True)
+    nav_bar = ParentalKey(NavBar, related_name="nav_links", null=True, blank=True)
+    footer = ParentalKey(Footer, related_name="footer_links", null=True, blank=True)
 
     text = models.CharField(max_length=255)
     url = models.URLField()

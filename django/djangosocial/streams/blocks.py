@@ -1,6 +1,14 @@
 """Stream block definitions."""
 
-from wagtail.blocks import StructBlock, CharBlock, TextBlock, ListBlock, DateBlock, PageChooserBlock, ChoiceBlock
+from wagtail.blocks import (
+    StructBlock,
+    CharBlock,
+    TextBlock,
+    ListBlock,
+    DateBlock,
+    PageChooserBlock,
+    ChoiceBlock,
+)
 from wagtail.images.blocks import ImageChooserBlock
 
 
@@ -24,23 +32,28 @@ class TimelineMomentBlock(StructBlock):
     class Meta:
         template = "blocks/timeline_moment_block.html"
 
+
 class TimelineBlock(StructBlock):
     "Timeline Block"
 
     timeline_moments = ListBlock(TimelineMomentBlock())
+
     class Meta:
         template = "blocks/timeline_block.html"
 
 
 class Stat(StructBlock):
-    number = CharBlock() # not an actual number to give flexibility in formatting
+    number = CharBlock()  # not an actual number to give flexibility in formatting
     title = CharBlock()
-    description  = TextBlock()
-    size = ChoiceBlock(choices = [
-        ("small", "Small"),
-        ("medium", "Medium"),
-        ("large", "Large"),
-    ])
+    description = TextBlock()
+    size = ChoiceBlock(
+        choices=[
+            ("small", "Small"),
+            ("medium", "Medium"),
+            ("large", "Large"),
+        ]
+    )
+
 
 class StatsBlock(StructBlock):
     "Stats Block"
@@ -51,6 +64,7 @@ class StatsBlock(StructBlock):
 
     class Meta:
         template = "blocks/stats_block.html"
+
 
 class HeroBlock(StructBlock):
     "Hero Block"
@@ -68,6 +82,7 @@ class ContentListItemBlock(StructBlock):
     lead_paragraph = TextBlock()
     link = PageChooserBlock()
 
+
 class ContentListBlock(StructBlock):
     "ContentList Block"
     title = CharBlock()
@@ -75,7 +90,9 @@ class ContentListBlock(StructBlock):
     image = ImageChooserBlock()
 
     list_title = CharBlock()
-    list_type = CharBlock(help_text="What does the list of represent? (eg roles, events)")
+    list_type = CharBlock(
+        help_text="What does the list of represent? (eg roles, events)"
+    )
     content_list = ListBlock(ContentListItemBlock(), max_num=3)
 
     more_list_text = CharBlock()
@@ -83,6 +100,7 @@ class ContentListBlock(StructBlock):
 
     class Meta:
         template = "blocks/content_with_list.html"
+
 
 class ContentWithImagesBlock(StructBlock):
     "Content With Images Block"

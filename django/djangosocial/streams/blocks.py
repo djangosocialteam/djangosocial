@@ -68,5 +68,9 @@ class ContentWithImagesBlock(StructBlock):
 class LogoCloudBlock(StructBlock):
     "Logo Cloud Block"
 
+    title = CharBlock()
+    lead_paragraph = TextBlock()
+    logos = ListBlock(ImageChooserBlock())
+
     class Meta:
         template = "blocks/logocloud_block.html"

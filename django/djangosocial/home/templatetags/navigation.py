@@ -3,7 +3,7 @@
 from django import template
 from wagtail.models import Site
 
-from ..models import NavBar
+from ..models import Footer, NavBar
 
 register = template.Library()
 # https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/
@@ -61,3 +61,12 @@ def nav_logo():
     instance = NavBar.objects.first()
     if instance:
         return instance.logo.url
+
+
+@register.inclusion_tag("tags/footer.html")
+def get_footer():
+    """Injects the footer into the template."""
+    footer = Footer.objects.first()
+    return {
+        "footer": footer,
+    }

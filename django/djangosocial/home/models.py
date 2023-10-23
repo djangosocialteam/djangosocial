@@ -5,7 +5,7 @@ from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel, InlinePanel
-from wagtail.fields import StreamField
+from wagtail.fields import RichTextField, StreamField
 from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 
@@ -76,7 +76,14 @@ class AboutPage(Page):
 
 @register_snippet
 class Footer(ClusterableModel):
-    panels = [InlinePanel("footer_links", label="Footer Links")]
+    """Footer model."""
+
+    text = RichTextField(help_text="Footer text.", null=True)
+
+    panels = (
+        FieldPanel("text"),
+        InlinePanel("footer_links", label="Footer Links"),
+    )
 
 
 @register_snippet

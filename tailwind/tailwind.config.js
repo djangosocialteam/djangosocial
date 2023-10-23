@@ -2,7 +2,11 @@
 module.exports = {
   content: ["../django/djangosocial/**/*.html"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#0c4b33",
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/forms')

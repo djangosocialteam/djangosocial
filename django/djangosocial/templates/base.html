@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar %}
+{% load static wagtailcore_tags wagtailuserbar navigation %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,6 +29,7 @@
     <h1 class="sr-only">{{ page.title }} - Django.social</h1>
     {% wagtailuserbar %}
     {% block content %}{% endblock %}
+    {% get_footer %}
     {# Global javascript #}
     <script type="text/javascript" src="{% static 'js/djangosocial.js' %}"></script>
     {% block extra_js %}{# Override this in templates to add extra javascript #}{% endblock %}

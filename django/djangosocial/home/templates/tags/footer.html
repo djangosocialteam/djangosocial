@@ -1,0 +1,13 @@
+{% load wagtailcore_tags %}
+<footer class="bg-primary text-white p-4 lg:p-8 text-center">
+  <div class="text">{{ footer.text|richtext }}</div>
+  {% if footer.footer_links.exists %}
+    <ul class="footer-links">
+      {% for link in footer.footer_links.all %}
+        <li>
+          <a href="{{ link.url }}">{{ link.text }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</footer>

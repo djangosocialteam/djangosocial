@@ -26,6 +26,9 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://sociald.theepic.dev",
+]
 
 # Application definition
 INSTALLED_APPS = [

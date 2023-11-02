@@ -27,6 +27,7 @@
   <body class="{% block body_class %}{% endblock %}">
     {# This element will not be visible; it is only for accessibility purposes #}
     <h1 class="sr-only">{{ page.title }} - Django.social</h1>
+    {% include "includes/header.html" %}
     {% wagtailuserbar %}
     {% block content %}{% endblock %}
     {% get_footer %}

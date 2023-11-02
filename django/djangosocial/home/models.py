@@ -1,6 +1,7 @@
 """Home page models."""
 
 from django.db import models
+from django.utils.safestring import mark_safe
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 from wagtail import blocks
@@ -84,6 +85,10 @@ class Footer(ClusterableModel):
         FieldPanel("text"),
         InlinePanel("footer_links", label="Footer Links"),
     )
+
+    def __str__(self):
+        """String representation of footer."""
+        return mark_safe(self.text)
 
 
 @register_snippet

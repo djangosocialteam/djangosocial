@@ -1,13 +1,16 @@
 {% load wagtailcore_tags %}
 <footer class="bg-primary text-white p-4 lg:p-8 text-center">
   <div class="text">{{ footer.text|richtext }}</div>
-  {% if footer.footer_links.exists %}
-    <ul class="footer-links">
-      {% for link in footer.footer_links.all %}
-        <li>
-          <a href="{{ link.url }}">{{ link.text }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+  {% with footer.footer_links.all as footer_links %}
+    {% if footer_links %}
+      <ul class="footer-links">
+        {% for link in footer_links %}
+          <li class="sm:inline">
+            <a href="{{ link.url }}">{{ link.text }}</a>
+          </li>
+          {% if not forloop.last %}<span class="hidden sm:inline">|</span>{% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
 </footer>

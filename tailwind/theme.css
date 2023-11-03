@@ -21,3 +21,10 @@
     @apply mx-auto w-full max-w-sm;
   }
 }
+
+#mobile-menu {
+  translate: 100%;
+}
+#mobile-menu[aria-expanded="true"] {
+  translate: initial;
+}

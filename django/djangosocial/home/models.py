@@ -13,6 +13,7 @@ from wagtail.snippets.models import register_snippet
 from djangosocial.streams.blocks import (
     ContentListBlock,
     ContentWithImagesBlock,
+    GalleryBlock,
     HeroBlock,
     HeroImageBlock,
     LogoCloudBlock,
@@ -28,6 +29,7 @@ class HomePage(Page):
         [
             ("rich_text", blocks.RichTextBlock()),
             ("hero_image", HeroImageBlock()),
+            ("gallery", GalleryBlock()),
             ("timeline", TimelineBlock()),
             ("stats", StatsBlock()),
             ("hero", HeroBlock()),

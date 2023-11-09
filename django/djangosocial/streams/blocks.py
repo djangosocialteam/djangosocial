@@ -24,6 +24,36 @@ class HeroImageBlock(StructBlock):
         template = "blocks/hero_image_block.html"
 
 
+class GalleryImageBlock(StructBlock):
+    """Individual gallery image block."""
+
+    image = ImageChooserBlock(help_text="Choose an image.", required=True)
+    caption = CharBlock(help_text="An optional caption for the image.", required=False)
+
+    class Meta:
+        """Meta attributes."""
+
+        icon = "image"
+        template = "blocks/gallery_image_block.html"
+
+
+class GalleryBlock(StructBlock):
+    """Gallery block."""
+
+    title = CharBlock(
+        help_text="An optional title for the gallery.",
+        required=False,
+        max_length=50,
+    )
+    images = ListBlock(GalleryImageBlock())
+
+    class Meta:
+        """Meta attributes."""
+
+        icon = "image"
+        template = "blocks/gallery_block.html"
+
+
 class TimelineMomentBlock(StructBlock):
     date = DateBlock()
     title = CharBlock()

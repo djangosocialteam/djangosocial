@@ -1,0 +1,50 @@
+{% load wagtailimages_tags %}
+<section class="gallery">
+  {% if self.title %}
+    <h2>{{ self.title }}</h2>
+  {% else %}
+    <h2 class="sr-only">Gallery</h2>
+  {% endif %}
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {% for img in self.images %}
+        <div class="swiper-slide">
+          {# Define alternate image sizes #}
+          {% image img.image width-768 format-webp as img_768_webp %}
+          {% image img.image width-768 format-avif as img_768_avif %}
+          {% image img.image width-768 format-jpeg as img_768_jpeg %}
+          {% image img.image width-1024 format-webp as img_1024_webp %}
+          {% image img.image width-1024 format-avif as img_1024_avif %}
+          {% image img.image width-1024 format-jpeg as img_1024_jpeg %}
+          {% image img.image width-1536 format-webp as img_1536_webp %}
+          {% image img.image width-1536 format-avif as img_1536_avif %}
+          {% image img.image width-1536 format-jpeg as img_1536_jpeg %}
+          <picture>
+            <source srcset="{{ img_768_webp.url }}"
+                    media="(max-width: 768px)"
+                    type="image/webp">
+            <source srcset="{{ img_768_avif.url }}"
+                    media="(max-width: 768px)"
+                    type="image/avif">
+            <source srcset="{{ img_768_jpeg.url }}" media="(max-width: 768px)">
+            <source srcset="{{ img_1024_webp.url }}"
+                    media="(max-width: 1024px)"
+                    type="image/webp">
+            <source srcset="{{ img_1024_avif.url }}"
+                    media="(max-width: 1024px)"
+                    type="image/avif">
+            <source srcset="{{ img_1024_jpeg.url }}" media="(max-width: 1024px)">
+            <source srcset="{{ img_1536_webp.url }}"
+                    media="(min-width: 1025px)"
+                    type="image/webp">
+            <source srcset="{{ img_1536_avif.url }}"
+                    media="(min-width: 1025px)"
+                    type="image/avif">
+            <source srcset="{{ img_1536_jpeg.url }}" media="(min-width: 1025px)">
+            <img src="{{ img_768_jpeg.url }}" class="max-h-[100vh] mx-auto" />
+          </picture>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -2,6 +2,8 @@
 {% load static wagtailcore_tags %}
 {% block body_class %}template-homepage{% endblock %}
 {% block extra_css %}
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 {% endblock extra_css %}
 {% block content %}
   <main>
@@ -10,3 +12,15 @@
     {% endfor %}
   </main>
 {% endblock content %}
+{% block extra_js %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      autoplay: {
+        delay: 5000,
+      },
+      loop: true,
+      speed: 666,
+    });
+  </script>
+{% endblock extra_js %}

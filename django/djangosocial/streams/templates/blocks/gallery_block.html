@@ -6,7 +6,7 @@
     <h2 class="sr-only">Gallery</h2>
   {% endif %}
   <div class="swiper">
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper items-center">
       {% for img in self.images %}
         <div class="swiper-slide">
           {# Define alternate image sizes #}
@@ -41,7 +41,9 @@
                     media="(min-width: 1025px)"
                     type="image/avif">
             <source srcset="{{ img_1536_jpeg.url }}" media="(min-width: 1025px)">
-            <img src="{{ img_768_jpeg.url }}" class="max-h-[100vh] mx-auto" />
+            <img src="{{ img_768_jpeg.url }}"
+                 class="max-h-[100vh] mx-auto"
+                 alt="{{ img.image.title }}" />
           </picture>
         </div>
       {% endfor %}

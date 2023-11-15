@@ -8,5 +8,5 @@ if [ "$STAGE" = "dev" ]; then
   echo Running in dev mode...
   python manage.py runserver 0.0.0.0:8000
 else
-  gunicorn djangosocial.wsgi:application --bind 0.0.0.0:8000
+  gunicorn djangosocial.wsgi:application --bind 0.0.0.0:8000 --timeout 300
 fi

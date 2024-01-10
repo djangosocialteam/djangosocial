@@ -4,19 +4,46 @@ name: 'deploy'
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # container: ubuntu:latest
     steps:
       - name: Cloning repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
+      # - name: install curl dependency
+      #   run: apt-get update && apt-get install curl sudo bind9-host 2ping -y
+      # - name: Tailscale
+      #   uses: tailscale/github-action@v2
+      #   with:
+      #     oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+      #     oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+      #     tags: tag:ci
+      #     tailscaled-args: --tun=userspace-networking --socks5-server=localhost:1055 --outbound-http-proxy-listen=localhost:1055
+      # - name: Test Connectivity
+      #   run: |
+      #     tailscale status
+      #     ls -al /github/home/
+      #     pwd
+      #     # host aws-dokku
+      #     # ping -c 10 aws-dokku
+      - name: AWS Security Group Add IP
+        uses: sohelamin/aws-security-group-add-ip-action@v1.0.1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
+          aws-region: 'eu-west-2'
+          aws-security-group-id: 'sg-0e2a639b321457151'
       - name: Push to dokku
         uses: dokku/github-action@master
         with:
           git_remote_url: 'ssh://dokku@dokku.akmiller.co.uk:22/django-social'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          branch: 'main'
+          git_push_flags: '--force -vvv'
+          ssh_host_key: ${{ secrets.SSH_HOST_KEY }}
+          trace: '1'

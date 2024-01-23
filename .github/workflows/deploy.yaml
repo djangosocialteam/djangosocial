@@ -27,5 +27,5 @@ jobs:
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           branch: 'main'
           git_push_flags: '--force -vvv'
-          # ssh_host_key: ${{ secrets.SSH_HOST_KEY }}
+          ssh_host_key: ${{ secrets.SSH_HOST_KEY }}
 

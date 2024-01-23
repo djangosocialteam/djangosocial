@@ -28,4 +28,4 @@ jobs:
           branch: 'main'
           git_push_flags: '--force -vvv'
           ssh_host_key: ${{ secrets.SSH_HOST_KEY }}
-
+          trace: '1'

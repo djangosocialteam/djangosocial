@@ -23,7 +23,7 @@ jobs:
       - name: Push to dokku
         uses: dokku/github-action@master
         with:
-          git_remote_url: 'ssh://dokku@100.105.249.66:22/django-social'
+          git_remote_url: 'ssh://dokku@aws-dokku.mole-woodpecker.ts.net:22/django-social'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           branch: 'main'
           git_push_flags: '--force -vvv'

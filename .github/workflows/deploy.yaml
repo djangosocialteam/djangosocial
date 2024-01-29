@@ -20,6 +20,10 @@ jobs:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
+      - name: Test Connectivity
+        run: |
+          host aws-dokku.mole-woodpecker.ts.net
+          ping -c 10 aws-dokku.mole-woodpecker.ts.net
       - name: Push to dokku
         uses: dokku/github-action@master
         with:

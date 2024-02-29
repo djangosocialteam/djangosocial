@@ -1,0 +1,38 @@
+---
+name: 'deploy'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cloning repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+      - name: Test Connectivity
+        run: |
+          host aws-dokku.mole-woodpecker.ts.net
+          ping -c 10 aws-dokku.mole-woodpecker.ts.net
+      - name: Push to dokku
+        uses: softwarecrafts/github-action@master
+        with:
+          git_remote_url: 'ssh://dokku@aws-dokku.mole-woodpecker.ts.net:22/django-social'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          branch: 'main'
+          git_push_flags: '--force -vvv'
+          ssh_host_key: ${{ secrets.SSH_HOST_KEY }}
+          trace: '1'
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci

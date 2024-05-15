@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_tailwind_cli",
     "home",
     "search",
     "streams",
@@ -180,7 +181,7 @@ STATICFILES_FINDERS = [
 ]
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "static" / "to_collect",
 ]
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
@@ -220,3 +221,7 @@ WAGTAILADMIN_BASE_URL = "http://example.com"
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+TAILWIND_CLI_SRC_CSS = 'static/to_compile/site.css'
+TAILWIND_CLI_DIST_CSS = 'site.css'
+TAILWIND_CLI_CONFIG_FILE = BASE_DIR / 'tailwind.config.js'

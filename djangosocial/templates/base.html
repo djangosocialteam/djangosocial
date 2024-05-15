@@ -1,4 +1,5 @@
 {% load static wagtailcore_tags wagtailuserbar navigation %}
+{% load tailwind_cli %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,7 +22,7 @@
     {# Force all links in the live preview panel to be opened in a new tab #}
     {% if request.in_preview_panel %}<base target="_blank">{% endif %}
     {# Global stylesheets #}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/theme.css' %}">
+    {% tailwind_css %}
     {% block extra_css %}{# Override this in templates to add extra stylesheets #}{% endblock %}
   </head>
   <body class="{% block body_class %}{% endblock %}">
@@ -32,7 +33,7 @@
     {% block content %}{% endblock %}
     {% get_footer %}
     {# Global javascript #}
-    <script type="text/javascript" src="{% static 'js/djangosocial.js' %}"></script>
+    <script type="text/javascript" src="{% static 'djangosocial.js' %}"></script>
     {% block extra_js %}{# Override this in templates to add extra javascript #}{% endblock %}
   </body>
 </html>

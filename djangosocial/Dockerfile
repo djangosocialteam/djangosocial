@@ -22,6 +22,10 @@ RUN python -m pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
 
 # Dev stage
 FROM django-base as django-dev
+
+# Needed so django_tailwind_cli stops the container immediately instead of after 10s
+STOPSIGNAL SIGINT
+
 COPY requirements-dev.txt /tmp/requirements.txt
 RUN python -m pip install pip-tools
 RUN python -m pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt

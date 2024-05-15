@@ -7,4 +7,4 @@ class UsersConfig(AppConfig):
     """Users app configuration."""
 
     default_auto_field = "django.db.models.BigAutoField"
-    name = "djangosocial.users"
+    name = "users"

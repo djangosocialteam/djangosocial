@@ -48,10 +48,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "djangosocial.home",
-    "djangosocial.search",
-    "djangosocial.streams",
-    "djangosocial.users",
+    "home",
+    "search",
+    "streams",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -65,7 +65,7 @@ MIDDLEWARE = [
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
-ROOT_URLCONF = "djangosocial.urls"
+ROOT_URLCONF = "urls"
 
 TEMPLATES = [
     {
@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "djangosocial.wsgi.application"
+WSGI_APPLICATION = "wsgi.application"
 
 LOGGING = {
     "version": 1,

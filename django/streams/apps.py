@@ -7,4 +7,4 @@ class StreamsConfig(AppConfig):
     """Defaault streams app config."""
 
     default_auto_field = "django.db.models.BigAutoField"
-    name = "djangosocial.streams"
+    name = "streams"

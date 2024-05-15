@@ -10,7 +10,7 @@ from wagtail.fields import RichTextField, StreamField
 from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 
-from djangosocial.streams.blocks import (
+from streams.blocks import (
     ContentListBlock,
     ContentWithImagesBlock,
     GalleryBlock,

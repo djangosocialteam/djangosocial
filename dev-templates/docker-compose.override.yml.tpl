@@ -13,11 +13,6 @@ services:
       - POSTGRES_USER=djangosocial
     volumes:
       - ./django:/django/
-  djangosocial-nginx:
-    build:
-      target: nginx-dev
-    ports:
-    - ${NGINX_PORT-8000}:80
   djangosocial-postgres:
     environment:
       - POSTGRES_DB=djangosocial

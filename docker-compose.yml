@@ -15,22 +15,8 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - PYTHONUNBUFFERED=1
     restart: unless-stopped
-    volumes:
-      - ./nginx/media:/mnt/media
-      - ./nginx/static:/mnt/static
-  djangosocial-nginx:
-    build:
-      context: nginx
-      target: nginx-prod
-    container_name: djangosocial-nginx
-    depends_on:
-      - djangosocial-django
-    expose:
-      - "80"
-    restart: unless-stopped
-    volumes:
-      - ./nginx/media:/mnt/media
-      - ./nginx/static:/mnt/static
+    ports:
+      - 8000:8000
   djangosocial-postgres:
     container_name: djangosocial-postgres
     environment:

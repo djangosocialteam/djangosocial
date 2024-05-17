@@ -1,2 +1,2 @@
-web: gunicorn wsgi:application --bind 0.0.0.0:$PORT --timeout 300 --chdir django
-release: python django/manage.py migrate
+web: gunicorn wsgi:application --bind 0.0.0.0:$PORT --timeout 300 --chdir djangosocial
+release: python djangosocial/manage.py migrate

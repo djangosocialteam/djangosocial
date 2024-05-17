@@ -2,7 +2,7 @@
 services:
   djangosocial-django:
     build:
-      context: django
+      context: ./djangosocial
       target: django-prod
     container_name: djangosocial-django
     depends_on:

@@ -12,7 +12,7 @@ services:
       - POSTGRES_PASSWORD=djangosocial
       - POSTGRES_USER=djangosocial
     volumes:
-      - ./django:/django/
+      - ./djangosocial:/django/
   djangosocial-postgres:
     environment:
       - POSTGRES_DB=djangosocial

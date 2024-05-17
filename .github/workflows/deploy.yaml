@@ -44,6 +44,6 @@ jobs:
           git_remote_url: 'ssh://dokku@dokku.akmiller.co.uk:22/django-social'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           branch: 'main'
-          git_push_flags: '--force -vvv'
+          git_push_flags: '--force'
           ssh_host_key: ${{ secrets.SSH_HOST_KEY }}
           trace: '1'

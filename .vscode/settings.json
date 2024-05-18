@@ -9,6 +9,9 @@
   },
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    "*.html": "django-html"
   }
 }

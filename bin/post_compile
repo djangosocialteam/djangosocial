@@ -4,5 +4,5 @@ set -eo pipefail # Exit at first error, including in a pipeline
 set -u # Consider unset variables as errors
 set -x # Print each command before executing it
 
-python djangosocial/manage.py tailwind build
-python djangosocial/manage.py collectstatic --noinput
+python manage.py tailwind build
+python manage.py collectstatic --noinput

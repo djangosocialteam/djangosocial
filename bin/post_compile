@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -eo pipefail # Exit at first error, including in a pipeline
+set -u # Consider unset variables as errors
+set -x # Print each command before executing it
+
+python manage.py tailwind build
+python manage.py collectstatic --noinput

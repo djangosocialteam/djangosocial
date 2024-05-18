@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["../django/djangosocial/**/*.html"],
+  content: ["**/*.html"],
   theme: {
     extend: {
       colors: {

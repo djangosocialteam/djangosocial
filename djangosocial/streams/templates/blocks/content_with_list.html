@@ -29,7 +29,7 @@
                         <dd
                             class="w-full flex-none text-lg font-semibold tracking-tight text-gray-900"
                         >
-                            <a href="{% pageurl item.link %}">
+                            <a href="{{ item.link.get_url }}"  {% if item.link.new_window %}target="_blank"{% endif %}>
                                 {{item.title}}
                                 <span
                                     class="absolute inset-0"
@@ -60,7 +60,8 @@
             </ul>
             <div class="mt-8 flex border-t border-gray-100 pt-8">
                 <a
-                    href="{% pageurl value.more_list_link %}"
+                    href="{{ value.more_list_link.get_url }}"
+                    {% if value.more_list_link.new_window %}target="_blank"{% endif %}
                     class="text-sm font-semibold leading-6 text-green-600 hover:text-green-500"
                     >{{value.more_list_text}}
                     <span aria-hidden="true">&rarr;</span></a

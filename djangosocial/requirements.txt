@@ -147,6 +147,7 @@ django==4.2.13 \
     #   django-typer
     #   djangorestframework
     #   wagtail
+    #   wagtail-link-block
 django-browser-reload==1.12.1 \
     --hash=sha256:08b457f1b6599bf782d4d2ecdfb0897d6fc936ac4035060d0269c2af5ef4ef7a \
     --hash=sha256:875b6bd01db13380522ccb4ae75871a2edeae74bb5ac92bf32eb76763d575d86
@@ -470,6 +471,12 @@ urllib3==2.2.1 \
 wagtail==5.2.5 \
     --hash=sha256:15800e17bd03244e023d2b9d70f02a51623982c3ef1ddb121925a884d625b5bb \
     --hash=sha256:576f7690ca997b0e6d9fda9880594bf4bb904117b6edd5f2d7fbab570feee5a3
+    # via
+    #   -r requirements.in
+    #   wagtail-link-block
+wagtail-link-block==1.1.7 \
+    --hash=sha256:5b7346bd60b65b00d7bafa48ab3b54b09c97abd085c0afd8f691be3219ff7a1c \
+    --hash=sha256:e2f0c9dedd8e1116fc347e8d5a28164376d121fa95b9c87a85ca408fc426846e
     # via -r requirements.in
 webencodings==0.5.1 \
     --hash=sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78 \

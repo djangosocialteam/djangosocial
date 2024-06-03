@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_tailwind_cli",
     "django_browser_reload",
+    "wagtail_link_block",
     "home",
     "search",
     "streams",

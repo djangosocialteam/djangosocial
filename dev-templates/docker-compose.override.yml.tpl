@@ -2,6 +2,7 @@
 services:
   djangosocial-django:
     build:
+      context: ./djangosocial
       target: django-dev
     environment:
       - DJANGO_DEBUG=True

@@ -9,6 +9,7 @@ from wagtail.blocks import (
     StructBlock,
     TextBlock,
 )
+from wagtail_link_block.blocks import LinkBlock
 from wagtail.images.blocks import ImageChooserBlock
 
 
@@ -110,7 +111,7 @@ class HeroBlock(StructBlock):
 class ContentListItemBlock(StructBlock):
     title = CharBlock()
     lead_paragraph = TextBlock()
-    link = PageChooserBlock()
+    link = LinkBlock()
 
 
 class ContentListBlock(StructBlock):
@@ -125,7 +126,7 @@ class ContentListBlock(StructBlock):
     content_list = ListBlock(ContentListItemBlock(), max_num=3)
 
     more_list_text = CharBlock()
-    more_list_link = PageChooserBlock()
+    more_list_link = LinkBlock()
 
     class Meta:
         template = "blocks/content_with_list.html"

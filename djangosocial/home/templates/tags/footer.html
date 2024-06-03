@@ -1,5 +1,5 @@
 {% load wagtailcore_tags %}
-<footer class="bg-primary text-white p-4 lg:p-8 text-center">
+<footer class="bg-primary text-white p-4 lg:p-8 text-center mt-16">
   <div class="text">{{ footer.text|richtext }}</div>
   {% with footer.footer_links.all as footer_links %}
     {% if footer_links %}

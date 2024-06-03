@@ -14,10 +14,8 @@
             </p>
             {% image value.image width-400 as image %}
             <img
-                {{
-                image.attrs
-                }}
                 class="mt-16 aspect-[6/5] w-full rounded-2xl bg-gray-50 object-cover lg:aspect-auto lg:h-[34.5rem]"
+                {{ image.attrs }}
             />
         </div>
         <div class="w-full lg:max-w-xl lg:flex-auto">
